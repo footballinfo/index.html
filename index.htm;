@@ -1393,7 +1393,16 @@
     
         /* ===== EXPANDED FOOTBALL INFO SECTIONS ===== */
         .extra-page{padding:35px 20px 100px;background:radial-gradient(ellipse 900px 500px at 50% 0%,rgba(212,175,55,.12),transparent 65%),#0a0a0d}.extra-header{text-align:center;margin-bottom:28px}.extra-header h1{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,6vw,4rem);color:var(--gold-bright);margin-bottom:10px}.extra-header p{color:#b9b1a0;max-width:720px;margin:auto;line-height:1.6}.data-tools{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin:25px auto;max-width:1050px}.data-tools input{padding:13px 17px;border-radius:999px;border:1px solid rgba(212,175,55,.35);background:#17151b;color:var(--cream);min-width:240px}.data-tools input:focus{outline:none;border-color:var(--gold-bright);box-shadow:0 0 0 3px rgba(212,175,55,.12)}.data-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;max-width:1100px;margin:auto}.data-card{background:linear-gradient(145deg,#1d1a21,#121116);border:1px solid rgba(212,175,55,.22);border-top:3px solid var(--gold);border-radius:15px;padding:22px;transition:.3s}.data-card:hover{transform:translateY(-5px);border-color:var(--gold-bright);box-shadow:0 15px 35px rgba(212,175,55,.12)}.data-card .big-icon{font-size:2.5rem;margin-bottom:12px}.data-card h3{color:var(--gold-bright);font-family:'Playfair Display',serif;font-size:1.45rem;margin-bottom:8px}.data-card p{color:#c7c0b1;line-height:1.55;font-size:.93rem}.data-card .meta{margin-top:14px;display:flex;flex-wrap:wrap;gap:7px}.tag{padding:5px 9px;border-radius:999px;background:rgba(212,175,55,.1);color:#e7c95e;font-size:.75rem}.record-list{max-width:1050px;margin:auto;display:grid;gap:10px}.record-row{display:grid;grid-template-columns:55px 1.2fr 1fr 1fr;gap:10px;align-items:center;padding:15px 16px;background:#17151b;border:1px solid rgba(212,175,55,.15);border-radius:10px}.record-row strong{color:var(--gold-bright)}.record-row span{color:#d8d0c1}.record-num{color:#7e7565!important;font-family:'JetBrains Mono',monospace}.home-extra{margin-top:35px;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}.home-extra .section-card{padding:28px 20px}.home-extra .section-card h2{font-size:1.45rem}@media(max-width:700px){.record-row{grid-template-columns:35px 1fr}.record-row span:nth-child(3),.record-row span:nth-child(4){grid-column:2}nav{justify-content:flex-start}}
-    .data-card.data-link{display:block;color:inherit;text-decoration:none;cursor:pointer}.data-card.data-link:hover{text-decoration:none}.external-label{display:inline-block;margin-top:14px;color:var(--gold-bright);font-size:.78em;font-weight:700;letter-spacing:.6px;text-transform:uppercase}</style>
+    .data-card.data-link{display:block;color:inherit;text-decoration:none;cursor:pointer}.data-card.data-link:hover{text-decoration:none}.external-label{display:inline-block;margin-top:14px;color:var(--gold-bright);font-size:.78em;font-weight:700;letter-spacing:.6px;text-transform:uppercase}
+/* Player photos */
+.player-photo-wrap{width:100%;height:190px;border-radius:16px;overflow:hidden;margin-bottom:14px;background:linear-gradient(135deg,#101827,#1d3557);display:flex;align-items:center;justify-content:center}
+.player-photo{width:100%;height:100%;object-fit:cover;object-position:center top;display:block}
+.record-player{display:flex;align-items:center;gap:10px}
+.record-player .player-photo{width:48px;height:48px;border-radius:50%;object-fit:cover}
+.stat-player{display:inline-flex;align-items:center;gap:8px}
+.stat-player .player-photo{width:34px;height:34px;border-radius:50%;object-fit:cover;vertical-align:middle}
+@media(max-width:700px){.player-photo-wrap{height:160px}}
+</style>
 </head>
 <body>
 
@@ -1408,7 +1417,7 @@
         <button class="nav-btn" onclick="showPage('ballon')">⚽ Ballon d'Or</button>
         <button class="nav-btn" onclick="showPage('worldcup')">🏆 World Cup</button>
         <button class="nav-btn" onclick="showPage('ucl')">👑 UEFA Champions League</button>
-        <button class="nav-btn" onclick="showPage('players')">👤 Players</button><button class="nav-btn" onclick="showPage('clubs')">🏟️ Clubs</button><button class="nav-btn" onclick="showPage('leagues')">🌍 Leagues</button><button class="nav-btn" onclick="showPage('records')">📊 Records</button><button class="nav-btn" onclick="showPage('tournaments')">🏅 Tournaments</button><button class="nav-btn" onclick="showPage('legends')">🐐 Legends</button><button class="nav-btn" onclick="showPage('nepal')">🇳🇵 Nepal</button><button class="nav-btn" onclick="showPage('news')">📰 News</button>
+        <button class="nav-btn" onclick="showPage('players')">👤 Players</button><button class="nav-btn" onclick="showPage('clubs')">🏟️ Clubs</button><button class="nav-btn" onclick="showPage('leagues')">🌍 Leagues</button><button class="nav-btn" onclick="showPage('records')">📊 Records</button><button class="nav-btn" onclick="showPage('tournaments')">🏅 Tournaments</button>
     </nav>
 
     <!-- HOME PAGE -->
@@ -1446,10 +1455,7 @@
     <div id="clubs" class="page content-page extra-page"><div class="container"><div class="extra-header"><h1>🏟️ Club Database</h1><p>Explore major clubs, stadiums, countries and historical achievements.</p></div><div class="data-tools"><input id="clubSearch" placeholder="Search club or country..." oninput="renderClubs()"></div><div id="clubGrid" class="data-grid"></div></div></div>
     <div id="leagues" class="page content-page extra-page"><div class="container"><div class="extra-header"><h1>🌍 Football Leagues</h1><p>Major domestic competitions and the clubs that have shaped them.</p></div><div class="data-tools"><input id="leagueSearch" placeholder="Search league or country..." oninput="renderLeagues()"></div><div id="leagueGrid" class="data-grid"></div></div></div>
     <div id="records" class="page content-page extra-page"><div class="container"><div class="extra-header"><h1>📊 Football Records</h1><p>Notable records across international and club football.</p></div><div class="data-tools"><input id="recordSearch" placeholder="Search record..." oninput="renderRecords()"></div><div id="recordGrid" class="record-list"></div></div></div>
-    <div id="tournaments" class="page content-page extra-page"><div class="container"><div class="extra-header"><h1>🏅 Major Tournaments</h1><p>International and club competitions from around the football world.</p></div><div id="tournamentGrid" class="data-grid"></div></div></div>
-    <div id="legends" class="page content-page extra-page"><div class="container"><div class="extra-header"><h1>🐐 Football Legends</h1><p>Iconic players and the eras in which they made their mark.</p></div><div class="data-tools"><input id="legendSearch" placeholder="Search legend..." oninput="renderLegends()"></div><div id="legendGrid" class="data-grid"></div></div></div>
-    <div id="nepal" class="page content-page extra-page"><div class="container"><div class="extra-header"><h1>🇳🇵 Nepal Football</h1><p>A dedicated section for Nepal's national-team history, regional competitions and football development.</p></div><div id="nepalGrid" class="data-grid"></div></div></div>
-    <div id="news" class="page content-page extra-page"><div class="container"><div class="extra-header"><h1>📰 Football News</h1><p>News categories are built in here. Connect a news API later for automatic live updates.</p></div><div id="newsGrid" class="data-grid"></div></div></div>
+    <div id="tournaments" class="page content-page extra-page"><div class="container"><div class="extra-header"><h1>🏅 Major Tournaments</h1><p>International and club competitions from around the football world.</p></div><div id="tournamentGrid" class="data-grid"></div></div></div></div></div></div>
 
     <!-- BALLON D'OR PAGE -->
     <div id="ballon" class="page content-page ballon-page">
@@ -1649,6 +1655,7 @@
                         <div class="rank">#${index + 1}</div>
                     </div>
                     <div class="card-body">
+                        ${isUnavailable ? '' : `<div class="player-photo-wrap"><img class="player-photo" data-player="${winner.player.replace(/"/g,'&quot;')}" alt="${winner.player.replace(/"/g,'&quot;')}" loading="lazy"></div>`}
                         <div class="player-name">${winner.player}</div>
                         <div class="info">
                             <div class="info-row">
@@ -1691,7 +1698,7 @@
         document.getElementById('decadeFilter').addEventListener('change', filterWinners);
 
         // Initial render
-        renderWinners(ballonDorData);
+        renderWinners(ballonDorData); loadPlayerPhotos(document.getElementById('winnersContainer'));
 
         // ===== WORLD CUP DATA & FUNCTIONALITY =====
         const DATA = [
@@ -1756,7 +1763,7 @@
         });
 
         function row(key, val, dim=false){
-            return `<div class="stat-row"><span class="stat-key">${key}</span><span class="stat-val${dim?' dim':''}">${val}</span></div>`;
+            const playerKeys=['Golden Boot','Golden Ball','Golden Glove','Young Player']; const p=playerKeys.includes(key)&&val&&!dim?playerSearchName(val):''; return `<div class="stat-row"><span class="stat-key">${key}</span><span class="stat-val${dim?' dim':''}">${p?`<span class="stat-player"><img class="player-photo" data-player="${p.replace(/"/g,'&quot;')}" alt="${p.replace(/"/g,'&quot;')}" loading="lazy">${val}</span>`:val}</span></div>`;
         }
 
         function selectYear(i){
@@ -1882,9 +1889,7 @@
             uclTimeline.appendChild(btn);
         });
 
-        function uclRow(key, val, dim=false){
-            return `<div class="ucl-stat-row"><span class="ucl-stat-key">${key}</span><span class="ucl-stat-val${dim?' dim':''}">${val}</span></div>`;
-        }
+        function uclRow(key, val, dim=false){ const p=(!dim&&key!=='Final Score'&&val)?playerSearchName(val):''; return `<div class="ucl-stat-row"><span class="ucl-stat-key">${key}</span><span class="ucl-stat-val${dim?' dim':''}">${p?`<span class="stat-player"><img class="player-photo" data-player="${p.replace(/"/g,'&quot;')}" alt="${p.replace(/"/g,'&quot;')}" loading="lazy">${val}</span>`:val}</span></div>`; }
 
         function selectUCLYear(i){
             const d = UCL_DATA[i];
@@ -1913,6 +1918,7 @@
                 <div class="ucl-stat-grid">${rows}</div>
                 <div class="ucl-board-foot">Champions League Final Tournament Record — ${d.season}</div>
             `;
+            loadPlayerPhotos(uclBoard);
 
             [...uclBoard.querySelectorAll('.ucl-stat-row')].forEach((el, idx) => {
                 el.style.animationDelay = (idx * 70) + 'ms';
@@ -2019,6 +2025,24 @@
         // Initialize search results with message
         document.getElementById('uclSearchResults').innerHTML = '<div class="ucl-no-results">🔍 Enter a season or team name to search...</div>';
     
+        // ===== PLAYER PHOTO LOADER =====
+        const playerPhotoCache = {};
+        async function loadPlayerPhotos(root=document){
+            const imgs=[...root.querySelectorAll('img[data-player]')].filter(img=>!img.src);
+            await Promise.all(imgs.map(async img=>{
+                const name=img.dataset.player;
+                if(!name) return;
+                try{
+                    if(!playerPhotoCache[name]){
+                        const r=await fetch('https://en.wikipedia.org/api/rest_v1/page/summary/'+encodeURIComponent(name));
+                        const j=await r.json(); playerPhotoCache[name]=j.thumbnail?.source||'';
+                    }
+                    if(playerPhotoCache[name]) img.src=playerPhotoCache[name];
+                    else img.parentElement.style.display='none';
+                }catch(e){ img.parentElement.style.display='none'; }
+            }));
+        }
+
         // ===== EXPANDED FOOTBALL DATABASE =====
         const PLAYER_DATA=[
           {n:'Cristiano Ronaldo',c:'Portugal',p:'Forward',club:'Al-Nassr',t:'UEFA Champions League, Ballon d’Or, European Championship',u:'https://en.wikipedia.org/wiki/Cristiano_Ronaldo'},
@@ -2211,16 +2235,18 @@
           {i:'🧠',n:'Tactics & Analysis',d:'Explain formations, tactical changes, pressing, possession and set pieces.',tag:'Analysis'},
           {i:'🌍',n:'International Football',d:'Cover national-team fixtures, qualifying campaigns and major tournaments.',tag:'International'}
         ];
-        function card(x){const inner=`<div class="big-icon">${x.i||'⚽'}</div><h3>${x.n}</h3><p>${x.d||''}</p>${x.meta?`<div class="meta">${x.meta.map(m=>`<span class="tag">${m}</span>`).join('')}</div>`:''}${x.u?`<span class="external-label">↗ Open official / reference page</span>`:''}`;return x.u?`<a class="data-card data-link" href="${x.u}" target="_blank" rel="noopener noreferrer" title="Open ${x.n}">${inner}</a>`:`<div class="data-card">${inner}</div>`}
-function renderPlayers(){const q=(document.getElementById('playerSearch')?.value||'').toLowerCase();document.getElementById('playerGrid').innerHTML=PLAYER_DATA.filter(x=>(x.n+x.c+x.club+x.p).toLowerCase().includes(q)).map(x=>card({i:'👤',n:x.n,d:`${x.p} • ${x.c}<br><br><strong>Club:</strong> ${x.club}<br><strong>Major honours:</strong> ${x.t}`,meta:[x.p,x.c],u:x.u})).join('')||'<p>No players found.</p>'}
+        function playerSearchName(text){return String(text||'').replace(/\s*[—–-].*$/,'').split(' & ')[0].trim()}
+function card(x){const photo=x.player?`<div class="player-photo-wrap"><img class="player-photo" data-player="${x.player.replace(/"/g,'&quot;')}" alt="${x.player.replace(/"/g,'&quot;')}" loading="lazy"></div>`:`<div class="big-icon">${x.i||'⚽'}</div>`;const inner=`${photo}<h3>${x.n}</h3><p>${x.d||''}</p>${x.meta?`<div class="meta">${x.meta.map(m=>`<span class="tag">${m}</span>`).join('')}</div>`:''}${x.u?`<span class="external-label">↗ Open official / reference page</span>`:''}`;return x.u?`<a class="data-card data-link" href="${x.u}" target="_blank" rel="noopener noreferrer" title="Open ${x.n}">${inner}</a>`:`<div class="data-card">${inner}</div>`}
+function renderPlayers(){const q=(document.getElementById('playerSearch')?.value||'').toLowerCase();document.getElementById('playerGrid').innerHTML=PLAYER_DATA.filter(x=>(x.n+x.c+x.club+x.p).toLowerCase().includes(q)).map(x=>card({player:x.n,n:x.n,d:`${x.p} • ${x.c}<br><br><strong>Club:</strong> ${x.club}<br><strong>Major honours:</strong> ${x.t}`,meta:[x.p,x.c],u:x.u})).join('')||'<p>No players found.</p>'}
+
 function renderClubs(){const q=(document.getElementById('clubSearch')?.value||'').toLowerCase();document.getElementById('clubGrid').innerHTML=CLUB_DATA.filter(x=>(x.n+x.country+x.stadium).toLowerCase().includes(q)).map(x=>card({i:'🏟️',n:x.n,d:`${x.country}<br><br><strong>Stadium:</strong> ${x.stadium}<br><strong>Major honours:</strong> ${x.t}`,meta:[x.country],u:x.u})).join('')||'<p>No clubs found.</p>'}
 function renderLeagues(){const q=(document.getElementById('leagueSearch')?.value||'').toLowerCase();document.getElementById('leagueGrid').innerHTML=LEAGUE_DATA.filter(x=>(x.n+x.country+x.info).toLowerCase().includes(q)).map(x=>card({i:x.icon,n:x.n,d:`${x.country}<br><br>${x.info}`,meta:[x.country],u:x.u})).join('')||'<p>No leagues found.</p>'}
-function renderRecords(){const q=(document.getElementById('recordSearch')?.value||'').toLowerCase();document.getElementById('recordGrid').innerHTML=RECORD_DATA.filter(x=>x.join(' ').toLowerCase().includes(q)).map((x,i)=>`<div class="record-row"><span class="record-num">${String(i+1).padStart(2,'0')}</span><strong>${x[0]}</strong><span>${x[1]}</span><span>${x[2]} • ${x[3]}</span></div>`).join('')||'<p>No records found.</p>'}
+function renderRecords(){const q=(document.getElementById('recordSearch')?.value||'').toLowerCase();document.getElementById('recordGrid').innerHTML=RECORD_DATA.filter(x=>x.join(' ').toLowerCase().includes(q)).map((x,i)=>`<div class="record-row"><span class="record-num">${String(i+1).padStart(2,'0')}</span><strong>${x[0]}</strong><span class="record-player"><img class="player-photo" data-player="${playerSearchName(x[1]).replace(/"/g,'&quot;')}" alt="${x[1].replace(/"/g,'&quot;')}" loading="lazy">${x[1]}</span><span>${x[2]} • ${x[3]}</span></div>`).join('')||'<p>No records found.</p>'}
 function renderLegends(){const q=(document.getElementById('legendSearch')?.value||'').toLowerCase();document.getElementById('legendGrid').innerHTML=LEGEND_DATA.filter(x=>(x.n+x.e+x.c+x.d).toLowerCase().includes(q)).map(x=>card({i:'🐐',n:x.n,d:`${x.c} • ${x.e}<br><br>${x.d}`,meta:[x.c,x.e],u:x.u})).join('')||'<p>No legends found.</p>'}
 function renderTournaments(){document.getElementById('tournamentGrid').innerHTML=TOURNAMENT_DATA.map(x=>card(x)).join('')}
 function renderNepal(){document.getElementById('nepalGrid').innerHTML=NEPAL_DATA.map(x=>card(x)).join('')}
 function renderNews(){document.getElementById('newsGrid').innerHTML=NEWS_DATA.map(x=>card({i:x.i,n:x.n,d:x.d,meta:[x.tag]})).join('')}
-renderPlayers();renderClubs();renderLeagues();renderRecords();renderLegends();renderTournaments();renderNepal();renderNews();
+renderPlayers();renderClubs();renderLeagues();renderRecords();renderTournaments();loadPlayerPhotos();
     </script>
 </body>
 </html>
